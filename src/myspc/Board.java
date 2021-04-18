@@ -26,7 +26,6 @@ public class Board extends JPanel {
     private int kills = 0;
 
     private boolean inGame = true;
-    private String explImg = "src/images/explosion.png";
     private String message = "Game Over";
     
     SoundPlayer sound = new SoundPlayer();
@@ -50,14 +49,27 @@ public class Board extends JPanel {
 	
     private void gameInit() {
         aliens = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 6; j++) {
-				int r = new Random().nextInt(3);
+		int r1 = new Random().nextInt(3);
+        /*
+		for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 6; y++) {
+				int r2 = new Random().nextInt(3);
 				var alien = new Sprite();
-				if (r == 0) alien = new Alien(Commons.ALIEN_INIT_X + 18 * j, Commons.ALIEN_INIT_Y + 18 * i);
-				if (r == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 18 * j, Commons.ALIEN_INIT_Y + 18 * i);
-				if (r == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 18 * j, Commons.ALIEN_INIT_Y + 18 * i);
+				if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 18 * y, Commons.ALIEN_INIT_Y + 18 * x);
+				if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 18 * y, Commons.ALIEN_INIT_Y + 18 * x);
+				if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 18 * y, Commons.ALIEN_INIT_Y + 18 * x);
 				aliens.add((Alien) alien);
+            }
+        }
+		*/
+		for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 4; y++) {
+				int r2 = new Random().nextInt(3);
+				var alien = new Sprite();
+				if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+				if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+				if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+				if (((x == 1 || x == 3) && y == 0) || (y == 1) || ((x == 1 || x == 2 || x == 3) && y == 2) || (x == 2 && y == 3)) aliens.add((Alien) alien);
             }
         }
         player = new Player();
@@ -162,8 +174,7 @@ public class Board extends JPanel {
                             && shotX <= (alienX + Commons.ALIEN_WIDTH)
                             && shotY >= (alienY)
                             && shotY <= (alienY + Commons.ALIEN_HEIGHT)) {
-
-                        var ii = new ImageIcon(explImg);
+                        var ii = new ImageIcon("src\\images\\explosion.png");
                         alien.setImage(ii.getImage());
                         alien.setDying(true);
                         sound.sound("src\\myspc\\audio\\explosion.wav");
@@ -185,7 +196,6 @@ public class Board extends JPanel {
             if (x >= Commons.BOARD_WIDTH - Commons.BORDER_RIGHT && direction != -1) {
                 direction = -1;
                 Iterator<Alien> i1 = aliens.iterator();
-				
                 while (i1.hasNext()) {
                     Alien a2 = i1.next();
                     a2.setY(a2.getY() + Commons.GO_DOWN);
@@ -236,13 +246,11 @@ public class Board extends JPanel {
             int playerY = player.getY();
 
             if (player.isVisible() && !bomb.isDestroyed()) {
-
                 if (bombX >= (playerX)
                         && bombX <= (playerX + Commons.PLAYER_WIDTH)
                         && bombY >= (playerY)
                         && bombY <= (playerY + Commons.PLAYER_HEIGHT)) {
-
-                    var ii = new ImageIcon(explImg);
+                    var ii = new ImageIcon("src\\images\\explosion.png");
                     player.setImage(ii.getImage());
                     player.setDying(true);
                     bomb.setDestroyed(true);

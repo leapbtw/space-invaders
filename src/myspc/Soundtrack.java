@@ -14,7 +14,7 @@ public class Soundtrack extends Thread {
 		while (true) {
 			sound.sound("src\\myspc\\audio\\soundtrack.wav");
 			try {
-				Thread.sleep(195300); //appena finisce ricomincia
+				Thread.sleep(195000); //appena finisce ricomincia
 			} catch (InterruptedException ex) {}
 		}
 	}
