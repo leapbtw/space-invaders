@@ -25,8 +25,7 @@ public class Alien2 extends Alien {
 		
 		s = new Siluro_Sovietico(x,y);
 		
-		
-		var alienImg = "src/images/alieno2.png";
+		var alienImg = "src/images/alien2.png";
 		
 	    var ii = new ImageIcon(alienImg);
 	    

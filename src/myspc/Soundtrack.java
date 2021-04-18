@@ -12,7 +12,7 @@ public class Soundtrack extends Thread {
 	@Override 
 	public void run() {
 		while (true) {
-			sound.sound("src\\myspc\\audio\\soundtrack.wav");
+			sound.sound("src\\audio\\soundtrack.wav");
 			try {
 				Thread.sleep(195000); //appena finisce ricomincia
 			} catch (InterruptedException ex) {}

@@ -24,7 +24,7 @@ public class Board extends JPanel {
     
     private int direction = -1;
     private int kills = 0;
-
+	private int NUMBER_OF_ALIENS_TO_DESTROY = 20;
     private boolean inGame = true;
     private String message = "Game Over";
     
@@ -33,11 +33,11 @@ public class Board extends JPanel {
     private Timer timer;
 
     public Board() {
+        boardInit();
         spawnMobs();
-        gameInit();
     }
 
-    private void spawnMobs() {
+    private void boardInit() {
         addKeyListener(new TAdapter());
         setFocusable(true);
         d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
@@ -47,33 +47,57 @@ public class Board extends JPanel {
         timer.start();
     }
 	
-    private void gameInit() {
-        aliens = new ArrayList<>();
-		int r1 = new Random().nextInt(3);
-        /*
-		for (int x = 0; x < 4; x++) {
-            for (int y = 0; y < 6; y++) {
-				int r2 = new Random().nextInt(3);
-				var alien = new Sprite();
-				if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 18 * y, Commons.ALIEN_INIT_Y + 18 * x);
-				if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 18 * y, Commons.ALIEN_INIT_Y + 18 * x);
-				if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 18 * y, Commons.ALIEN_INIT_Y + 18 * x);
-				aliens.add((Alien) alien);
-            }
-        }
-		*/
-		for (int x = 0; x < 5; x++) {
-            for (int y = 0; y < 4; y++) {
-				int r2 = new Random().nextInt(3);
-				var alien = new Sprite();
-				if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-				if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-				if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-				if (((x == 1 || x == 3) && y == 0) || (y == 1) || ((x == 1 || x == 2 || x == 3) && y == 2) || (x == 2 && y == 3)) aliens.add((Alien) alien);
-            }
-        }
+    private void spawnMobs() {
         player = new Player();
         shot = new Shot();
+		aliens = new ArrayList<>();
+		
+		//int r1 = new Random().nextInt(3);
+		int r1 = 3;
+		if (r1 == 0) {
+			for (int x = 0; x < 4; x++) {
+			    for (int y = 0; y < 6; y++) {
+					int r2 = new Random().nextInt(3);
+					var alien = new Sprite();
+					if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * y, Commons.ALIEN_INIT_Y + 25 * x);
+					if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * y, Commons.ALIEN_INIT_Y + 25 * x);
+					if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * y, Commons.ALIEN_INIT_Y + 25 * x);
+					aliens.add((Alien) alien);
+			    }
+			}
+			NUMBER_OF_ALIENS_TO_DESTROY = 24;
+		}
+		if (r1 == 1) {
+			for (int x = 0; x < 5; x++) {
+			    for (int y = 0; y < 4; y++) {
+					int r2 = new Random().nextInt(3);
+					var alien = new Sprite();
+					if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (((x == 1 || x == 3) && y == 0) || (y == 1) || ((x == 1 || x == 2 || x == 3) && y == 2) || (x == 2 && y == 3)) aliens.add((Alien) alien);
+			    }
+			}
+			NUMBER_OF_ALIENS_TO_DESTROY = 11;
+		}
+		if (r1 == 2) {
+			var alien = new Sprite();
+			for (int x = 0; x < 12; x++) {
+				alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25);
+				aliens.add((Alien) alien);
+			}
+			NUMBER_OF_ALIENS_TO_DESTROY = 12;
+		}
+		if (r1 == 3) {
+			var alien = new Sprite();
+			for (int x = 0; x < 7; x++) {
+				alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
+				aliens.add((Alien) alien);
+				alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * -x);
+				aliens.add((Alien) alien);
+			}
+			NUMBER_OF_ALIENS_TO_DESTROY = 14;
+		}
     }
 
     private void drawAliens(Graphics g) {
@@ -149,7 +173,7 @@ public class Board extends JPanel {
     }
 
     private void update() {
-        if (kills == Commons.NUMBER_OF_ALIENS_TO_DESTROY) {
+        if (kills == NUMBER_OF_ALIENS_TO_DESTROY) {
             //inGame = false;
             //timer.stop();
             //message = "Game won!";
@@ -177,7 +201,7 @@ public class Board extends JPanel {
                         var ii = new ImageIcon("src\\images\\explosion.png");
                         alien.setImage(ii.getImage());
                         alien.setDying(true);
-                        sound.sound("src\\myspc\\audio\\explosion.wav");
+                        sound.sound("src\\audio\\explosion.wav");
                         kills++;
                         //shot.die();
                     }
@@ -234,7 +258,7 @@ public class Board extends JPanel {
             Bomb bomb = alien.getBomb();
 
             if (shot == Commons.CHANCE && alien.isVisible() && bomb.isDestroyed()) {
-                if(inGame == true) sound.sound("src\\myspc\\audio\\fireball.wav");
+                if(inGame == true) sound.sound("src\\audio\\fireball.wav");
                 bomb.setDestroyed(false);
                 bomb.setX(alien.getX());
                 bomb.setY(alien.getY());
@@ -289,7 +313,7 @@ public class Board extends JPanel {
             int y = player.getY();
             int key = e.getKeyCode();
             if (key == KeyEvent.VK_SPACE) {
-                sound.sound("src\\myspc\\audio\\arrow.wav");
+                sound.sound("src\\audio\\arrow.wav");
                 shot = new Shot(x, y);
             }
         }
