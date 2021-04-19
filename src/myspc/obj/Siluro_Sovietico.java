@@ -25,7 +25,7 @@ public class Siluro_Sovietico extends Bomb {
 		this.x=x;
 		this.y=y;
 		
-		var bombImg = "src/images/razzo.png";
+		var bombImg = "src/images/razzo2.png";
 		var ii = new ImageIcon(bombImg);
 		
 		setImage(ii.getImage());
