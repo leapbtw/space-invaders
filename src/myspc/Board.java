@@ -53,7 +53,7 @@ public class Board extends JPanel {
 		aliens = new ArrayList<>();
 		
 		int r1 = new Random().nextInt(16);
-		//int r1 = 10;
+		//int r1 = 7;
 		if (r1 == 0) {
 			for (int x = 0; x < 4; x++) {
 			    for (int y = 0; y < 6; y++) {
@@ -148,7 +148,7 @@ public class Board extends JPanel {
                     else if ((x == 4 || x == 5) && (y >= 0 && y <= 5)) aliens.add((Alien) alien);
                 }
             }
-            NUMBER_OF_ALIENS_TO_DESTROY = 40;
+            NUMBER_OF_ALIENS_TO_DESTROY = 44;
         }
 		if (r1 == 8) { // SPACE INVADERS
             for (int x = 0; x < 11; x++) {
@@ -167,7 +167,7 @@ public class Board extends JPanel {
             }
             NUMBER_OF_ALIENS_TO_DESTROY = 42;
         }
-		if (r1 == 9) {
+		if (r1 == 9) { // FEATURE 2
             for (int x = 0; x < 8; x++) {
                 for (int y = 0; y < 5; y++) {
                     var alien = new Sprite();
@@ -178,7 +178,7 @@ public class Board extends JPanel {
             }
             NUMBER_OF_ALIENS_TO_DESTROY = 32;
         }
-		if (r1 >= 10) {
+		if (r1 >= 10) { // RANDOM
 			for (int x = 0; x < 15; x++) {
 				for (int y = 0; y < 7; y++) {
 					var alien = new Sprite();
@@ -301,7 +301,8 @@ public class Board extends JPanel {
                         alien.setDying(true);
                         sound.sound("src\\audio\\explosion.wav");
                         kills++;
-                        //shot.die(); //piercing
+						System.out.println("kills: " + kills);
+                        shot.die(); //piercing
                     }
                 }
             }
