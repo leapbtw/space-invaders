@@ -381,7 +381,6 @@ public class Board extends JPanel {
                 int y = alien.getY();
                 if (y > Commons.GROUND - Commons.ALIEN_HEIGHT) {
                     inGame = false;
-                    message = "Invasion!";
                 }
                 alien.move(direction);
             }
