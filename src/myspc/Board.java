@@ -29,7 +29,7 @@ public class Board extends JPanel {
     private int kills = 0;
 	private int NUMBER_OF_ALIENS_TO_DESTROY = 0;
     private boolean inGame = true;
-    private String message = "Game Over";
+    private String message = "dio cane";
     int x = 0, y = 650;
     SoundPlayer sound = new SoundPlayer();
     CaricamentoPowerUp barra=new CaricamentoPowerUp();
