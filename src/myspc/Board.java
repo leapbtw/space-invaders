@@ -28,17 +28,18 @@ public class Board extends JPanel {
     private Player player;
     private Shot shot;
     private Timer timer;
-    
-    int score = 0;
-	
+    	
     SoundPlayer sound = new SoundPlayer();
     CaricamentoPowerUp barra = new CaricamentoPowerUp();
-    
+    MenuObject sfondo = new MenuObject("src\\images\\spazio3.gif");
+	
     private boolean PowerupActive = false;
     private int direction = -1;
     private int kills = 0, rx = 0, ry = 640;
     private int NUMBER_OF_ALIENS_TO_DESTROY = 0;
     private boolean inGame = true;
+	
+	public int score = 0;
 	
     public Board() {
         boardInit();
@@ -220,11 +221,13 @@ public class Board extends JPanel {
             NUMBER_OF_ALIENS_TO_DESTROY = 32;
         }
 		if (r1 >= 10) { // RANDOM
+			
 			for (int x = 0; x < 15; x++) {
 				for (int y = 0; y < 7; y++) {
 					int r2 = new Random().nextInt(77);
 					var alien = new Sprite();
-					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * 0, Commons.ALIEN_INIT_Y + 25 * 0);
+					if (r2 >= 1 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
 					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
 					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
 					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
@@ -295,9 +298,10 @@ public class Board extends JPanel {
     private void doDrawing(Graphics g) {
         g.setColor(Color.black);
         g.fillRect(0, 0, d.width, d.height);
-        g.setColor(Color.gray);
-
+        g.drawImage(sfondo.getImage(), 0, 0, this);
+		
         if (inGame) {
+			g.setColor(Color.gray);
             g.drawLine(0, Commons.GROUND, Commons.BOARD_WIDTH, Commons.GROUND);
             drawAliens(g);
             drawPlayer(g);
@@ -314,8 +318,7 @@ public class Board extends JPanel {
     }
 
     private void gameOver() {
-                System.out.println(score);
-		inGame = false;
+        inGame = false;
 		game.removeAll();
 		game.dispose();
 		game = null;
