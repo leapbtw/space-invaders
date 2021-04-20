@@ -61,8 +61,8 @@ public class Board extends JPanel {
 					int r2 = new Random().nextInt(77);
 					var alien = new Sprite();
 					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 26 && r2 <= 50) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 51 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
                     if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);                   
 					aliens.add((Alien) alien);
 			    }
@@ -75,8 +75,8 @@ public class Board extends JPanel {
 					int r2 = new Random().nextInt(77);
 					var alien = new Sprite();
 					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 26 && r2 <= 50) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 51 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
                     if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);                   
 					if (((x == 1 || x == 3) && y == 0) || (y == 1) || ((x == 1 || x == 2 || x == 3) && y == 2) || (x == 2 && y == 3)) aliens.add((Alien) alien);
 			    }
@@ -85,43 +85,43 @@ public class Board extends JPanel {
 		}
 		if (r1 == 2) { // LINEA ORIZZONTALE
 			for (int x = 0; x < 12; x++) {
-                int r2 = new Random().nextInt(4);
+                int r2 = new Random().nextInt(77);
 					int y = 3;
 					var alien = new Sprite();
-					if (r2 >= 0 && r2 <= 6) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * 3);
-					if (r2 >= 7 && r2 <= 13) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * 3);
-					if (r2 >= 14 && r2 <= 20) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * 3);
-                    if (r2 == 21) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);                   
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * 3);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * 3);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * 3);
+                    if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);                   
 					aliens.add((Alien) alien);
 			}
 			NUMBER_OF_ALIENS_TO_DESTROY = 12;
 		}
 		if (r1 == 3) { // DOPPIO SLASH
 			for (int x = 0; x < 7; x++) {
-                int r2 = new Random().nextInt(4);
+                int r2 = new Random().nextInt(77);
 					int y = 0;
 					var alien = new Sprite();
-					if (r2 >= 0 && r2 <= 6) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
-					if (r2 >= 7 && r2 <= 13) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
-					if (r2 >= 14 && r2 <= 20) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
-                    if (r2 == 21) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);    
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
+					if (r2 >= 26 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
+                    if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);    
 					
-					if (r2 >= 0 && r2 <= 6) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 7 && r2 <= 13) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 14 && r2 <= 20) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
-                    if (r2 == 21) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);                   
-					
-					
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
+                    if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);                   	
 			}
 			NUMBER_OF_ALIENS_TO_DESTROY = 14;
 		}
 		if (r1 == 4) { // FEATURE
-			var alien = new Sprite();
 			for (int x = 0; x < 5; x++) {
 				for (int y = 0; y < 5; y++) {
-                    if (x == 4 && y == 4) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					else if (x == 0 || x == 4 || y == 0 || y == 4) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					aliens.add((Alien) alien);
+					int r2 = new Random().nextInt(77);
+					var alien = new Sprite();
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+                    
+					if (x == 0 || x == 4 || y == 0 || y == 4) aliens.add((Alien) alien);
 				}
 			}
 			NUMBER_OF_ALIENS_TO_DESTROY = 25;
@@ -129,10 +129,10 @@ public class Board extends JPanel {
 		if (r1 == 5) { // CROCE DIAGONALE
             for (int x = 0; x < 5; x++) {
                 for (int y = 0; y < 5; y++) {
-                    int r2 = new Random().nextInt(2);
+                    int r2 = new Random().nextInt(20);
 					var alien = new Sprite();
-					if (r2 == 0) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 == 1) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 <= 18) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 19) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
                     if ((x == y) ||((x + y) == 4) ) aliens.add((Alien) alien);
                 }
 			}
@@ -141,11 +141,12 @@ public class Board extends JPanel {
 		if (r1 == 6) { // LOL
 			for (int x = 0; x < 11; x++) {
                 for (int y = 0; y < 4; y++) {
-					int r2 = new Random().nextInt(3);
+					int r2 = new Random().nextInt(77);
 					var alien = new Sprite();
-					if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 == 2) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
                     if (x == 0 || x == 4 || x == 6 || x == 8) aliens.add((Alien) alien);
 					if (x == 1 && y == 3) aliens.add((Alien) alien);
 					if (x == 2 && y == 3) aliens.add((Alien) alien);
@@ -158,11 +159,13 @@ public class Board extends JPanel {
 		if (r1 == 7) { // CASA
             for (int x = 0; x < 10; x++) {
                 for (int y = 0; y < 10; y++) {
-                   int r2 = new Random().nextInt(2);
+                    int r2 = new Random().nextInt(77);
 					var alien = new Sprite();
-					if (r2 == 0) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 == 1) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+                    
                     if ((x == 0 || x == 9) && (y == 2) ) aliens.add((Alien) alien);
                     else if ((x == 1 || x == 8) && (y == 1 || y == 2)) aliens.add((Alien) alien);
                     else if ((x == 2 || x == 7) && (y >= 0 && y <= 6) ) aliens.add((Alien) alien);
@@ -175,9 +178,13 @@ public class Board extends JPanel {
 		if (r1 == 8) { // SPACE INVADERS
             for (int x = 0; x < 11; x++) {
                 for (int y = 0; y < 8; y++) {
-                    var alien = new Sprite();
-                    if (x == 1 && y == 4) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-                    else alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+                    int r2 = new Random().nextInt(77);
+					var alien = new Sprite();
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+                    
 					if ((x == 2 || x == 8) && y == 0) aliens.add((Alien) alien);
 					if ((x == 3 || x == 7) && y == 1) aliens.add((Alien) alien);
 					if ((x >= 2 && x <= 8) && y == 2) aliens.add((Alien) alien);
@@ -192,26 +199,29 @@ public class Board extends JPanel {
 		if (r1 == 9) { // FEATURE 2
             for (int x = 0; x < 8; x++) {
                 for (int y = 0; y < 5; y++) {
-                    var alien = new Sprite();
-                    if (y < 3 && x > 4) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-                    else alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-                    if ((x == 1) || (x == 4) || (x == 7)) aliens.add((Alien) alien);
+                    int r2 = new Random().nextInt(77);
+					var alien = new Sprite();
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+                    
+					if ((x == 1) || (x == 4) || (x == 7)) aliens.add((Alien) alien);
                     if ((x == 0) || (x == 3) || (x == 6) && (y == 0) || (y == 2) || (y == 4)) aliens.add((Alien) alien);
                 }
             }
             NUMBER_OF_ALIENS_TO_DESTROY = 32;
         }
-		if (r1 >= 10) {
-                   // RANDOM
+		if (r1 >= 10) { // RANDOM
 			for (int x = 0; x < 15; x++) {
 				for (int y = 0; y < 7; y++) {
+					int r2 = new Random().nextInt(77);
 					var alien = new Sprite();
-                    int r2 = new Random().nextInt(4);
-                    //int r2 = 3;
-					if (r2 == 0) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 == 1) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 == 2) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-                    if (r2 == 3) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+					if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
+                    
 					int r3 = new Random().nextInt(4);
 					if (r3 == 0) {
 						aliens.add((Alien) alien);
