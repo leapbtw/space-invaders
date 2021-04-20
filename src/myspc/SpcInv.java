@@ -9,8 +9,6 @@ public class SpcInv extends JFrame {
     SoundPlayer sound = new SoundPlayer();
 	static SpcInv game = new SpcInv();
 	static boolean start = false, end = false;
-	
-	public static LinkedList<Sprite> JPlist = new LinkedList<Sprite>();
     
 	public SpcInv() {
         setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);

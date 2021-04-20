@@ -8,12 +8,16 @@ import myspc.obj.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
-import javax.swing.JLabel;
 import static myspc.SpcInv.game;
 
 
@@ -261,7 +265,7 @@ public class Board extends JPanel {
     }
 
     private void drawBombing(Graphics g) {
-		Image image = new ImageIcon("src/images/NetherStar.gif").getImage();
+		Image image = new ImageIcon("src\\images\\NetherStar.gif").getImage();
         for (Alien a : aliens) {
 			if(a.getImage()!=image){
 				Bomb b = a.getBomb();
@@ -271,8 +275,15 @@ public class Board extends JPanel {
     }
     
     public void drawScore(Graphics g) {
-        g.setColor(Color.white);
-        g.drawString("SCORE: " + score, 20, 310);
+		Font minecraft = null;
+		try {
+			minecraft = Font.createFont(Font.TRUETYPE_FONT, new File("src\\fonts\\minecraft.ttf")).deriveFont(12f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(minecraft);
+		} catch (Exception e) {}
+		g.setColor(Color.white);
+		g.setFont(minecraft);
+		g.drawString("SCORE: " + score, 20, 315);
     }
 
     @Override
