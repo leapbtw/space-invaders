@@ -9,22 +9,24 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static myspc.SpcInv.game;
 
 
-public class StartMenu extends JPanel {
+public class GameoverMenu extends JPanel {
 
     private Dimension d;
-    private Sfondo sfondo = new Sfondo();
-	private Logo logo = new Logo();
+    private Gameover sfondo = new Gameover();
+	private GameoverText text = new GameoverText();
 	private Player player = new Player();
-	private StartButton sb = new StartButton();
-    private int kills = 0;
+	private InsertCoin coin = new InsertCoin();
     
     SoundPlayer sound = new SoundPlayer();
 
     private Timer timer;
 
-    public StartMenu() {
+    public GameoverMenu() {
         boardInit();
     }
 
@@ -45,10 +47,9 @@ public class StartMenu extends JPanel {
     }
 
     private void doDrawing(Graphics g) {
-        g.drawImage(sfondo.getImage(), sfondo.getX(), sfondo.getY(), this);
-		g.drawImage(logo.getImage(), 100, 35, this);
-		g.drawImage(sb.getImage(), 250, 500, this);
-
+        g.drawImage(sfondo.getImage(), 0, 0, this);
+		g.drawImage(text.getImage(), 20, 35, this);
+		g.drawImage(coin.getImage(), 64, 140, this);
         Toolkit.getDefaultToolkit().sync();
     }
 	
