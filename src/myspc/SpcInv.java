@@ -55,7 +55,7 @@ public class SpcInv extends JFrame {
 				game = new SpcInv();
 				Board bd = new Board();
 				game.setContentPane(bd);
-				game.setVisible(true);
+				game.setVisible(true);	
 			}
 		}
 		

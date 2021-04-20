@@ -18,14 +18,13 @@ public class CaricamentoPowerUp extends Sprite {
 		var wallpaper = "src\\images\\Caricamento.png";
 		var ii = new ImageIcon(wallpaper);
 	    setImage(ii.getImage());
-            
 	}
-            public boolean isVisible() {
-
+	
+    public boolean isVisible() {
         return true;
     }
-            public int move(int x) {
-		return x += 100; 
-		
+	
+    public int move(int x) {
+		return x += 100; 	
 	}
 }
