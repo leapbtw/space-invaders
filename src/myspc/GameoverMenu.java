@@ -9,18 +9,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static myspc.SpcInv.game;
 
 
 public class GameoverMenu extends JPanel {
 
     private Dimension d;
-    private Gameover sfondo = new Gameover();
-	private GameoverText text = new GameoverText();
+	private MenuObject sfondo = new MenuObject("src\\images\\gameoverWP.gif");
+	private MenuObject text = new MenuObject("src\\images\\game_over_cover.gif");
+	private MenuObject coin = new MenuObject("src\\images\\coin.gif");
 	private Player player = new Player();
-	private InsertCoin coin = new InsertCoin();
     
     SoundPlayer sound = new SoundPlayer();
 

@@ -5,16 +5,14 @@
  */
 package myspc.obj;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author leapbtw
  */
-public class InsertCoin extends Sprite {
-	public InsertCoin() {
-		var wallpaper = "src\\images\\coin.gif";
-		var ii = new ImageIcon(wallpaper);
-	    setImage(ii.getImage());
-	}
+public enum SpriteID {
+	Player(),
+	Alien(),
+	Shot(),
+	Powerup(),
+	Label();
 }

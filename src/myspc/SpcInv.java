@@ -1,13 +1,16 @@
 package myspc;
 
 import java.awt.event.*;
+import java.util.LinkedList;
 import javax.swing.*;
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+import myspc.obj.*;
 
 public class SpcInv extends JFrame {
     SoundPlayer sound = new SoundPlayer();
 	static SpcInv game = new SpcInv();
 	static boolean start = false, end = false;
+	
+	public static LinkedList<Sprite> JPlist = new LinkedList<Sprite>();
     
 	public SpcInv() {
         setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
@@ -16,7 +19,7 @@ public class SpcInv extends JFrame {
         setLocationRelativeTo(null);
 		addMouseListener(new MAdapter());
 	}
-	
+
 	public static void main(String[]args) {
 		StartMenu sm = new StartMenu();
 		game.setContentPane(sm);

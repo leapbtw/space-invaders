@@ -13,12 +13,11 @@ import java.awt.event.*;
 
 public class StartMenu extends JPanel {
 
-    private Dimension d;
-    private Sfondo sfondo = new Sfondo();
-	private Logo logo = new Logo();
+    private Dimension d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);;
+	private MenuObject sfondo = new MenuObject("src\\images\\sfondo4.gif");
+	private MenuObject logo = new MenuObject("src\\images\\logo.png");
+	private MenuObject sb = new MenuObject("src\\images\\start_button.gif");
 	private Player player = new Player();
-	private StartButton sb = new StartButton();
-    private int kills = 0;
     
     SoundPlayer sound = new SoundPlayer();
 
@@ -31,7 +30,6 @@ public class StartMenu extends JPanel {
     private void boardInit() {
         addKeyListener(new TAdapter());
         setFocusable(true);
-        d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
         setBackground(Color.black);
 
         timer = new Timer(Commons.DELAY, new GameCycle());
