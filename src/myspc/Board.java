@@ -53,7 +53,8 @@ public class Board extends JPanel {
         shot = new Shot();
 		aliens = new ArrayList<>();
 		
-		int r1 = new Random().nextInt(16);
+		//int r1 = new Random().nextInt(16);
+		int r1 = 4;
 		if (r1 == 0) {
 			for (int x = 0; x < 6; x++) {
 			    for (int y = 0; y < 4; y++) {
@@ -123,7 +124,7 @@ public class Board extends JPanel {
 					if (x == 0 || x == 4 || y == 0 || y == 4) aliens.add((Alien) alien);
 				}
 			}
-			NUMBER_OF_ALIENS_TO_DESTROY = 25;
+			NUMBER_OF_ALIENS_TO_DESTROY = 16;
 		}
 		if (r1 == 5) { // CROCE DIAGONALE
             for (int x = 0; x < 5; x++) {
@@ -461,7 +462,7 @@ public class Board extends JPanel {
             int key = e.getKeyCode();
             if (key == KeyEvent.VK_SPACE) {
                 sound.sound("src\\audio\\arrow.wav");
-                shot = new Shot(x, y);
+                shot = new Shot(x, y, PowerupActive);
             }
         }
     }
