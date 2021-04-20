@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.*;
 import java.util.*;
+import javax.swing.JLabel;
 import static myspc.SpcInv.game;
 
 
@@ -22,7 +23,9 @@ public class Board extends JPanel {
     private List<Alien> aliens;
     private Player player;
     private Shot shot;
-	private Timer timer;
+    private Timer timer;
+    
+    int score = 0;
 	
     SoundPlayer sound = new SoundPlayer();
     CaricamentoPowerUp barra = new CaricamentoPowerUp();
@@ -30,7 +33,7 @@ public class Board extends JPanel {
     private boolean PowerupActive = false;
     private int direction = -1;
     private int kills = 0, rx = 0, ry = 640;
-	private int NUMBER_OF_ALIENS_TO_DESTROY = 0;
+    private int NUMBER_OF_ALIENS_TO_DESTROY = 0;
     private boolean inGame = true;
 	
     public Board() {
@@ -53,8 +56,8 @@ public class Board extends JPanel {
         shot = new Shot();
 		aliens = new ArrayList<>();
 		
-		//int r1 = new Random().nextInt(16);
-		int r1 = 4;
+		int r1 = new Random().nextInt(16);
+		//int r1 = 4;
 		if (r1 == 0) {
 			for (int x = 0; x < 6; x++) {
 			    for (int y = 0; y < 4; y++) {
@@ -63,7 +66,7 @@ public class Board extends JPanel {
 					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
 					if (r2 >= 26 && r2 <= 50) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
 					if (r2 >= 51 && r2 <= 75) alien = new Alien3(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);
-                    if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);                   
+                                        if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * y);                   
 					aliens.add((Alien) alien);
 			    }
 			}
@@ -266,6 +269,11 @@ public class Board extends JPanel {
 			}
         }
     }
+    
+    public void drawScore(Graphics g) {
+        g.setColor(Color.white);
+        g.drawString("SCORE: " + score, 20, 310);
+    }
 
     @Override
     public void paintComponent(Graphics g) {
@@ -285,6 +293,7 @@ public class Board extends JPanel {
             drawShot(g);
             drawBombing(g);
             drawRet(g);
+            drawScore(g);
         } else {
             timer.stop();
 			timer = null;
@@ -294,6 +303,7 @@ public class Board extends JPanel {
     }
 
     private void gameOver() {
+                System.out.println(score);
 		inGame = false;
 		game.removeAll();
 		game.dispose();
@@ -302,9 +312,10 @@ public class Board extends JPanel {
 		
 		SpcInv.end = true;
 		SpcInv.start = false;
-		GameoverMenu sm = new GameoverMenu();
+		GameoverMenu sm = new GameoverMenu();              
 		game.setContentPane(sm);
 		game.setVisible(true);
+                
 	}
 
     private void update() {
@@ -342,7 +353,8 @@ public class Board extends JPanel {
                         alien.setDying(true);
                         sound.sound("src\\audio\\explosion.wav");
                         kills++;
-						if(PowerupActive == true){
+                        score += 100;
+			if(PowerupActive == true){
                             rx = barra.move(rx);
                             if(rx > 650) {
                                 rx = 0;
