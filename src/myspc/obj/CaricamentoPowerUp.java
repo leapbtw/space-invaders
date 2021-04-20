@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Andrei
+ * @author Boghiu
  */
 public class CaricamentoPowerUp extends Sprite {
 	

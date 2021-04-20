@@ -2,7 +2,7 @@ package myspc.obj;
 import javax.swing.ImageIcon;
 /**
  *
- * @author Andrei
+ * @author Boghiu
  */
 public class PowerUp extends Alien {
 	

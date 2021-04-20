@@ -1,9 +1,9 @@
 package myspc;
 
 import java.awt.event.*;
-import java.util.LinkedList;
+
 import javax.swing.*;
-import myspc.obj.*;
+
 
 public class SpcInv extends JFrame {
     SoundPlayer sound = new SoundPlayer();
