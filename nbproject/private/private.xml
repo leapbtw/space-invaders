@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/leapbtw/Documents/GitHub/space-invaders/src/myspc/obj/MenuObject.java</file>
-            <file>file:/C:/Users/leapbtw/Documents/GitHub/space-invaders/src/myspc/GameoverMenu.java</file>
-            <file>file:/C:/Users/leapbtw/Documents/GitHub/space-invaders/src/myspc/SpcInv.java</file>
-            <file>file:/C:/Users/leapbtw/Documents/GitHub/space-invaders/src/myspc/Board.java</file>
-            <file>file:/C:/Users/leapbtw/Documents/GitHub/space-invaders/src/myspc/obj/Shot.java</file>
+            <file>file:/C:/Users/Emanuela/Documents/GitHub/space-invaders/src/myspc/StartMenu.java</file>
+            <file>file:/C:/Users/Emanuela/Documents/GitHub/space-invaders/src/myspc/obj/CaricamentoPowerUp.java</file>
+            <file>file:/C:/Users/Emanuela/Documents/GitHub/space-invaders/src/myspc/Commons.java</file>
+            <file>file:/C:/Users/Emanuela/Documents/GitHub/space-invaders/src/myspc/GameoverMenu.java</file>
+            <file>file:/C:/Users/Emanuela/Documents/GitHub/space-invaders/src/myspc/Board.java</file>
+            <file>file:/C:/Users/Emanuela/Documents/GitHub/space-invaders/src/myspc/obj/Sprite.java</file>
         </group>
     </open-files>
 </project-private>

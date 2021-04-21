@@ -61,8 +61,8 @@ public class Board extends JPanel {
         shot = new Shot();
 		aliens = new ArrayList<>();
 		
-		int r1 = new Random().nextInt(16);
-		//int r1 = 4;
+		//int r1 = new Random().nextInt(16);
+		int r1 = 3;
 		if (r1 == 0) {
 			for (int x = 0; x < 6; x++) {
 			    for (int y = 0; y < 4; y++) {
@@ -112,10 +112,11 @@ public class Board extends JPanel {
 					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
 					if (r2 >= 26 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);
                     if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x, Commons.ALIEN_INIT_Y + 25 * x);    
-					
-					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
-					if (r2 >= 26 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);
-                    if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * y);                   	
+					aliens.add((Alien) alien);
+					if (r2 >= 0 && r2 <= 25) alien = new Alien(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * x);
+					if (r2 >= 26 && r2 <= 75) alien = new Alien2(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * x);
+                    if (r2 == 76) alien = new PowerUp(Commons.ALIEN_INIT_X + 25 * x + 100, Commons.ALIEN_INIT_Y + 25 * x);   
+					aliens.add((Alien) alien);
 			}
 			NUMBER_OF_ALIENS_TO_DESTROY = 14;
 		}
