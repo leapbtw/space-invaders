@@ -61,8 +61,8 @@ public class Board extends JPanel {
         shot = new Shot();
 		aliens = new ArrayList<>();
 		
-		//int r1 = new Random().nextInt(16);
-		int r1 = 3;
+		int r1 = new Random().nextInt(16);
+		//int r1 = 3;
 		if (r1 == 0) {
 			for (int x = 0; x < 6; x++) {
 			    for (int y = 0; y < 4; y++) {
